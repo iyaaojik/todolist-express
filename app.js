@@ -20,8 +20,11 @@ sequelize
   });
 
 const authRoutes = require('./routing/auth');
+const todoRoutes = require('./routing/todo');
 
 app.use('/auth', authRoutes);
+app.use('/todo', todoRoutes);
+
 
 app.get('/', (req, res) => {
     res.send('Hello World!')
