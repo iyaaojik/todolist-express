@@ -1,8 +1,8 @@
 {
   "development": {
-    "username": "freedb_ojikk",
-    "password": "rgx7%UC$eexDs$",
-    "database": "freedb_jikk_store",
+    "username": "freedb_mydbadmin",
+    "password": "KEx2Dv266@y#SMk",
+    "database": "freedb_todolistapp",
     "host": "sql.freedb.tech",
     "dialect": "mysql"
   },
