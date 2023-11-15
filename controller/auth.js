@@ -4,8 +4,16 @@ const jwt = require('jsonwebtoken');
 const register = async (req, res) => {
   try {
     const { username, password } = req.body;
-    await User.create({ username, password });
-    res.status(201).json({ message: 'Register user berhasil.' });
+
+    const user = await User.findOne({ where: { username } });
+    if (!user){
+      await User.create({ username, password });
+      res.status(201).json({ message: 'Register user berhasil.' });
+    }
+    else{
+      res.status(401).json({ message: 'Username telah diambil' });
+    }
+    
   } catch (error) {
     console.error(error);
     res.status(500).json({ message: 'Internal Server Error' });
@@ -23,6 +31,7 @@ const login = async (req, res) => {
     }
 
     const isPasswordValid = await user.comparePassword(password);
+
     if (!isPasswordValid) {
       return res.status(401).json({ error: 'Invalid Password' });
     }
