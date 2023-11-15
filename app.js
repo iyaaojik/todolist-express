@@ -13,10 +13,10 @@ app.use(bodyParser.json());
 sequelize
   .authenticate()
   .then(() => {
-    console.log('Database Connected.');
+    console.log('Database Terhubung.');
   })
   .catch((err) => {0
-    console.error('Database are not connected:', err);
+    console.error('Database tidak terhubung', err);
   });
 
 const authRoutes = require('./routing/auth');

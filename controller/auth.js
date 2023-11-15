@@ -8,10 +8,10 @@ const register = async (req, res) => {
     const user = await User.findOne({ where: { username } });
     if (!user){
       await User.create({ username, password });
-      res.status(201).json({ message: 'Register user berhasil.' });
+      res.status(201).json({ message: 'Register berhasil.' });
     }
     else{
-      res.status(401).json({ message: 'Username telah diambil' });
+      res.status(401).json({ message: 'Username telah dibuat' });
     }
     
   } catch (error) {
@@ -27,13 +27,13 @@ const login = async (req, res) => {
 
 
      if (!user) {
-      return res.status(401).json({ error: 'Invalid Username' });
+      return res.status(401).json({ error: 'Username tidak tersedia' });
     }
 
     const isPasswordValid = await user.comparePassword(password);
 
     if (!isPasswordValid) {
-      return res.status(401).json({ error: 'Invalid Password' });
+      return res.status(401).json({ error: 'Password tidak tersedia' });
     }
 
     const token = jwt.sign({ userId: user.id }, 'secretkey', { expiresIn: '1h' });

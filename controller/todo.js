@@ -30,7 +30,7 @@ const getTodoById = async (req, res) => {
     const todo = await Todo.findOne({ where: { id, userId } });
 
     if (!todo) {
-      return res.status(404).json({ message: 'Todo not found.' });
+      return res.status(404).json({ message: 'Todo tidak ditemukan' });
     }
 
     res.status(200).json(todo);
@@ -48,7 +48,7 @@ const updateTodo = async (req, res) => {
     const [updatedRows] = await Todo.update({ title, description }, { where: { id, userId } });
 
     if (updatedRows === 0) {
-      return res.status(404).json({ message: 'Todo not found.' });
+      return res.status(404).json({ message: 'Todo tidak ditemukan.' });
     }
 
     res.status(200).json({ message: 'Todo berhasil diupdate. ' });
@@ -65,7 +65,7 @@ const deleteTodoById = async (req, res) => {
     const deletedRows = await Todo.destroy({ where: { id, userId } });
 
     if (deletedRows === 0) {
-      return res.status(404).json({ message: 'Todo not found.' });
+      return res.status(404).json({ message: 'Todo tidak ditemukan.' });
     }
 
     res.status(200).json({ message: 'Todo berhasil dihapus.' });
