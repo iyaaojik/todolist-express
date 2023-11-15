@@ -1,9 +1,9 @@
 {
   "development": {
-    "username": "root",
-    "password": null,
-    "database": "todolist_app",
-    "host": "127.0.0.1",
+    "username": "freedb_ojikk",
+    "password": "rgx7%UC$eexDs$",
+    "database": "freedb_jikk_store",
+    "host": "sql.freedb.tech",
     "dialect": "mysql"
   },
   "test": {
